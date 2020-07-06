@@ -18,3 +18,11 @@ app.all('/secret', function (req, res, next) {
 
 
 ```
+
+Here are some examples of route paths based on string patterns.
+
+This route path will match acd and abcd.
+
+app.get('/ab?cd', function (req, res) {
+  res.send('ab?cd')
+})
