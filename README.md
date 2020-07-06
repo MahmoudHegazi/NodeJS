@@ -8,6 +8,24 @@ There is a special routing method, app.all(), used to load middleware functions 
 For example, the following handler is executed for requests to the route “/secret” whether using GET, POST, PUT, DELETE, 
 or any other HTTP request method supported in the http module.
 
+
+#  important route parameters 
+
+Route parameters
+Route parameters are named URL segments that are used to capture the values specified at their position in the URL. The captured values are populated in the req.params object, with the name of the route parameter specified in the path as their respective keys.
+
+Route path: /users/:userId/books/:bookId
+Request URL: http://localhost:3000/users/34/books/8989
+req.params: { "userId": "34", "bookId": "8989" }
+To define routes with route parameters, simply specify the route parameters in the path of the route as shown below.
+
+```javascript
+app.get('/users/:userId/books/:bookId', function (req, res) {
+  res.send(req.params)
+})
+```
+
+
 ```javascript
 
 app.all('/secret', function (req, res, next) {
